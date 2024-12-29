@@ -260,3 +260,15 @@ h1 {
     transform: translateY(0);
   }
 }
+
+.center {
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+  padding: 5px 10px;
+  width: fit-content;
+  background-color: #e4ddd4;
+  margin-inline: auto;
+}
