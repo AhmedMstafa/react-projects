@@ -4,7 +4,6 @@ import { useLoaderData, Await } from 'react-router-dom';
 
 export default function EventPage() {
   const { events } = useLoaderData();
-  console.log(events);
   return (
     <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
       <Await resolve={events}>
