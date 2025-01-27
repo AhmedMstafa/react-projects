@@ -19,10 +19,7 @@ export default function Create() {
   const navigate = useNavigate();
   // @ts-ignore
   const formRef = useRef();
-  const [state, formAction, isLoading] = useActionState(
-    addTransactionHandler,
-    false
-  );
+  const [formAction, isLoading] = useActionState(addTransactionHandler, false);
 
   function addTransactionHandler(prev, formData) {
     // eslint-disable-next-line react-hooks/rules-of-hooks

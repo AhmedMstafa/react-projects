@@ -41,7 +41,7 @@ export default function MuiDrawer({
     navigate(path);
   }
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box component="nav" sx={{ display: 'flex' }}>
       <Drawer
         sx={{
           display: { xs: noneOrBlock, sm: 'block' },

@@ -45,11 +45,13 @@ export default function Root() {
         <div>
           <MuiAppBar showDrawer={showDrawer} drawerWidth={drawerWidth} />
           <MuiDrawer
-            drawerType={drawerType}
-            noneOrBlock={noneOrBlock}
-            setMyModeHandler={setMyModeHandler}
-            drawerWidth={drawerWidth}
-            hideDrawer={hideDrawer}
+            {...{
+              drawerType,
+              noneOrBlock,
+              setMyModeHandler,
+              drawerWidth,
+              hideDrawer,
+            }}
           />
           <Box
             component="main"

@@ -1,4 +1,4 @@
-import { Box, IconButton, Paper, Typography, useTheme } from '@mui/material';
+import { Box, IconButton, Paper, Typography } from '@mui/material';
 import './Home.css';
 import { Close } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
@@ -8,7 +8,6 @@ function getTotalExpenses(data) {
 }
 
 export default function Home() {
-  const theme = useTheme();
   const [data, setData] = useState({ total: 0, expenses: [] });
 
   async function getData() {
