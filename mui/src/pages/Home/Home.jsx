@@ -10,23 +10,23 @@ function getTotalExpenses(data) {
 export default function Home() {
   const [data, setData] = useState({ total: 0, expenses: [] });
 
-  async function getData() {
-    let response;
-    try {
-      response = await fetch('http://localhost:3100/mydata');
-    } catch (err) {
-      throw new Error('cannot get data!');
-    }
-
-    if (!response.ok) {
-      throw new Error('error with response data!');
-    }
-
-    const data = await response.json();
-    const total = getTotalExpenses(data);
-    setData({ total, expenses: data });
-  }
   useEffect(() => {
+    async function getData() {
+      let response;
+      try {
+        response = await fetch('http://localhost:3100/mydata');
+      } catch (err) {
+        throw new Error('cannot get data!');
+      }
+
+      if (!response.ok) {
+        throw new Error('error with response data!');
+      }
+
+      const data = await response.json();
+      const total = getTotalExpenses(data);
+      setData({ total, expenses: data });
+    }
     getData();
   }, []);
 
@@ -36,7 +36,12 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((res) => getData());
+    });
+
+    const updatedData = data.expenses.filter((item) => item.id !== id);
+    const total = getTotalExpenses(updatedData);
+
+    setData({ total, expenses: updatedData });
   }
 
   return (
